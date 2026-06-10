@@ -16,7 +16,11 @@ while True:
         print(f"Estudiante '{nombre}' agregado exitosamente.")
         break
     elif opcion=="2":
-        pass
+        nombre=input("Ingrese el nombre del estudiante a buscar: ").strip().title()
+        if nombre in estudiantes:
+            print(f"Estudiante '{nombre}' encontrado en la lista.")
+        else:
+            print(f"Estudiante '{nombre}' no encontrado en la lista.")
     elif opcion=="3":
         pass
             

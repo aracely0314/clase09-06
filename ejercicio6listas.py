@@ -11,10 +11,12 @@ while True:
     print(menu)
     opcion=input("Seleccione una opción: ")
     if opcion=="1":
-        pass
-        
+        nombre=input("Ingrese el nombre del estudiante: ").strip().title()
+        estudiantes.append(nombre)
+        print(f"Estudiante '{nombre}' agregado exitosamente.")
+        break
     elif opcion=="2":
-       pass
+        pass
     elif opcion=="3":
         pass
             

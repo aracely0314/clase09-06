@@ -30,8 +30,11 @@ while True:
             print(f"Estudiante '{nombre}' no encontrado en la lista.")
             
     elif opcion=="4":
-      pass
-            
+        if not estudiantes:
+            print("No hay estudiantes en la lista.")
+        else:
+            for i in range(len(estudiantes)):
+                print(f"Estudiante {i+1}: {estudiantes[i]}")
     elif opcion=="5":
         print("Saliendo del programa...")
         break

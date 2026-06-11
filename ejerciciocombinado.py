@@ -10,6 +10,7 @@ menu="""1. Agregar estudiante
 
 while True:
     os.system("cls")
+    print(estudiantes)#borrar esta línea después de probar el programa
     print(menu)
     opcion = input("Seleccione una opción: ")
     os.system("cls")
@@ -27,7 +28,28 @@ while True:
         time.sleep(2)
         continue
     elif opcion == "2":
-        pass
+        print("Agregar nota")
+        nombre_nota = input("Ingrese el nombre del estudiante al que desea agregar una nota: ").strip().title()
+        if nombre_nota not in estudiantes:
+            print(f"El estudiante {nombre_nota} no existe.")
+            time.sleep(2)
+            continue
+        else:
+            while True: 
+                try:
+                    nota=int(input("Ingrese la nota del estudiante: "))
+                    if nota>=1 and nota<=70:
+                        for i in range(len(estudiantes)):
+                            if nombre_nota in estudiantes:
+                                estudiantes[nombre_nota].append(nota)
+                                break
+                        print(f"Nota agregada con éxito al estudiante {nombre_nota}.")
+                        break
+                    else:
+                        print("La nota debe estar entre 1 y 70.")
+                except ValueError:
+                    print("Por favor, ingrese un número entero válido.")
+
     elif opcion == "3":
         pass
     elif opcion == "4":
@@ -39,4 +61,4 @@ while True:
         break
     else:
         print("Opción no válida. Por favor, seleccione una opción del 1 al 6.")
-    time.sleep(2)
+    time.sleep(1)

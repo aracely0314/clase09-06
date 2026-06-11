@@ -11,7 +11,6 @@ menu="""1. Agregar estudiante
 
 while True:
     os.system("cls")
-    print(estudiantes)#borrar esta línea después de probar el programa
     print(menu)
     opcion = input("Seleccione una opción: ")
     os.system("cls")

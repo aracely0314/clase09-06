@@ -1,6 +1,7 @@
 import os, time
 estudiantes = {}
-
+suma=0
+cantidad_notas=0
 menu="""1. Agregar estudiante
 2. Agregar nota
 3. Mostrar estudiantes
@@ -55,11 +56,36 @@ while True:
             print("No hay estudiantes en la lista.")
             time.sleep(1)
         else:
-            for c in range(len(estudiantes)):
-                print(f"Estudiante {c+1}: {nombre}")
+            for k in range(len(estudiantes)):
+                print(f"Estudiante {k+1}: {list(estudiantes.keys())[k]}")
             time.sleep(3)
     elif opcion == "4":
-        pass
+        if len(estudiantes) == 0:
+            print("No hay estudiantes en la lista.")
+            time.sleep(1)
+            continue
+        print("Mostrar promedio de un estudiante")
+        nombre= input("Ingrese el nombre del estudiante para mostrar su promedio: ").strip().title()
+        if nombre not in estudiantes:
+            print(f"El estudiante {nombre} no existe.")
+            time.sleep(1)
+            continue
+        else:
+            if len(estudiantes[nombre]) == 0:
+                print(f"El estudiante {nombre} no tiene notas registradas.")
+                time.sleep(2)
+                continue
+            else:
+                notas = estudiantes[nombre]
+                if len(notas)>0:
+                    for nota in notas:
+                      suma+=nota
+                      cantidad_notas+=1
+                    promedio=suma/cantidad_notas
+                    print(f"El promedio del estudiante {nombre} es: {promedio:.1f}")
+                else:
+                    print(f"El estudiante {nombre} no tiene notas registradas.")
+                time.sleep(2)
     elif opcion == "5":
         pass
     elif opcion == "6":

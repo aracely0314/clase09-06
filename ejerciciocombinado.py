@@ -14,7 +14,18 @@ while True:
     opcion = input("Seleccione una opción: ")
     os.system("cls")
     if opcion == "1":
-        pass
+        print("Agregar estudiante")
+        nombre = input("Ingrese el nombre del estudiante: ").strip().title()
+        if nombre == "":
+            print("El nombre no puede estar vacío.")
+        elif nombre in estudiantes:
+            print(f"El estudiante {nombre} ya existe.")
+        else:
+            estudiantes[nombre] = [] 
+            print(f"Estudiante {nombre} agregado con éxito.")
+        print("Volviendo al menú principal...")
+        time.sleep(2)
+        continue
     elif opcion == "2":
         pass
     elif opcion == "3":
